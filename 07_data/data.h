@@ -2,6 +2,7 @@
 #define DATA_H
 
 #include <stdint.h>
+#include <iostream>
 
 class Data
 {
@@ -19,6 +20,7 @@ public:
     inline int dia() const { return mDia; }
     inline int mes() const { return mMes; }
     inline int ano() const { return mAno; }
+    inline bool isOk() const { return mbOK; }
 
     inline int ultimoDiaMes() const { return calcUltimoDiaMes(mes(), ano()); }
 
@@ -31,6 +33,8 @@ public:
     bool operator<= (const Data &dt) const { return compara( dt ) <= 0;  }
     bool operator>  (const Data &dt) const { return compara( dt ) > 0;   }
     bool operator>= (const Data &dt) const { return compara( dt ) >= 0;  }
+
+    friend std::ostream& operator<<(std::ostream& os, const Data& dt);
 
 private:
     uint8_t mDia = 0;

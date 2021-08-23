@@ -114,3 +114,20 @@ int Data::compara(const Data &dt) const
 
     return this->dia() - dt.dia();
 }
+
+
+std::ostream& operator<<(std::ostream& os, const Data& dt)
+{
+    if (dt.isOk())
+    {
+        os << setw(2) << setfill('0') <<
+            dt.dia() << "/" <<
+            dt.mes() << "/" <<
+            setw(4) << dt.ano();
+    }
+    else
+    {
+        os << "00/00/0000";
+    }
+    return os;
+}

@@ -21,7 +21,7 @@ int main()
     {
         cout << "ano " << dt1.ano() << " eh bissexto" << endl;
     }
-    dt1.imprime();
+    cout << dt1 << endl;
 
     dt1.altera(15, 07, 2020);
 
@@ -29,20 +29,20 @@ int main()
     for ( int i = 0; i <30; i++)
     {
         dt1++;
-        dt1.imprime();
+        cout << dt1 << endl;
     }
 
     dt1++;
-    dt1.imprime();
+    cout << dt1 << endl;
 
     dt1.altera(31, 12, 2021);
     if ( dt1.bissexto())
     {
         cout << "ano " << dt1.ano() << " eh bissexto" << endl;
     }
-    dt1.imprime();
+    cout << dt1 << endl;
     dt1++;
-    dt1.imprime();
+    cout << dt1 << endl;
 
 
     Data dt2;
@@ -59,5 +59,5 @@ int main()
 
     // teste fail
     dt1.altera( 31, 4, 2020 );
-    dt1.imprime();
+    cout << dt1 << endl;
 }
