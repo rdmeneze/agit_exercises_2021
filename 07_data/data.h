@@ -9,7 +9,9 @@ class Data
 public:
     Data() = default;
 
-    Data(const short int aMin, const short int aMax);
+    explicit Data(const short int aMin, const short int aMax);
+    explicit Data( const Data &dt );
+
 
     void altera( const uint8_t dia, const uint8_t mes, const short int ano );
 
@@ -25,7 +27,9 @@ public:
     inline int ultimoDiaMes() const { return calcUltimoDiaMes(mes(), ano()); }
 
     Data& operator++();
-    Data operator++(int);
+    Data& operator++(int);
+
+    Data& operator= (const Data &dt);
 
     bool operator== (const Data &dt) const { return compara( dt ) == 0;  }
     bool operator!= (const Data &dt) const { return compara( dt ) != 0;  }

@@ -29,7 +29,7 @@ int main()
     for ( int i = 0; i <30; i++)
     {
         dt1++;
-        cout << dt1 << endl;
+        cout << "data #" << i << ": " << dt1 << endl;
     }
 
     dt1++;
@@ -55,6 +55,11 @@ int main()
         cout << "dt1 > dt2" << endl;
     else
         cout << "dt1 < dt2" << endl;
+
+    cout << dt1 << endl;
+    dt1 = dt2;
+    cout << dt1 << endl;
+
 
 
     // teste fail

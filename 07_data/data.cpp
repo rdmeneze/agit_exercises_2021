@@ -10,6 +10,14 @@ Data::Data(const short int aMin, const short int aMax) : Data()
     mAnoMax = aMax;
 }
 
+Data::Data(const Data &dt)
+{
+    if (this != &dt)
+    {
+        *this = dt;
+    }
+}
+
 void Data::altera( const uint8_t dia, const uint8_t mes, const short int ano )
 {
     mbOK = validaData(dia, mes, ano);
@@ -76,7 +84,7 @@ bool Data::bissexto() const
     return isBissexto( mAno );
 }
 
-Data Data::operator++(int)
+Data& Data::operator++(int)
 {
     const int ultimoDia = calcUltimoDiaMes( mMes, mAno );
     if ( ultimoDia )
@@ -99,6 +107,21 @@ Data Data::operator++(int)
                 }
             }
         }
+    }
+
+    return *this;
+}
+
+Data& Data::operator=(const Data &dt)
+{
+    if (this != &dt)
+    {
+        this->mAno = dt.ano();
+        this->mMes = dt.mes();
+        this->mDia = dt.dia();
+        this->mAnoMax = dt.mAnoMax;
+        this->mAnoMin = dt.mAnoMin;
+        this->mbOK = dt.mbOK;
     }
 
     return *this;
